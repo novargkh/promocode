@@ -1,0 +1,9 @@
+{
+  "name": "luxel-quiz",
+  "version": "1.0.0",
+  "description": "LUXEL daily B2B promo quiz",
+  "dependencies": {
+    "@upstash/redis": "^1.34.0",
+    "uuid": "^9.0.1"
+  }
+}
