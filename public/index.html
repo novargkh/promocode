@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXEL — Щоденна акція</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <img src="logo.png" alt="LUXEL" class="logo">
+  </header>
+
+  <main class="main">
+
+    <div id="screen-loading" class="screen active">
+      <div class="card">
+        <div class="spinner"></div>
+        <p class="muted">Завантаження...</p>
+      </div>
+    </div>
+
+    <div id="screen-not-yet" class="screen">
+      <div class="card center">
+        <div class="icon">&#x23F0;</div>
+        <h2>Акція ще не відкрита</h2>
+        <p class="muted">Сьогоднішня вікторина почнеться о <strong id="open-time">09:00</strong></p>
+        <div class="countdown-block">
+          <div class="countdown-label">До початку:</div>
+          <div id="countdown-timer" class="countdown">--:--:--</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="screen-quiz" class="screen">
+      <div class="card quiz-card">
+        <div class="quiz-header">
+          <span class="badge">&#x1F381; Щоденна акція</span>
+          <p class="quiz-hint">Дайте правильні відповіді на всі 5 питань і отримайте промокод!</p>
+        </div>
+        <div id="questions-list" class="questions"></div>
+        <button id="btn-submit" class="btn btn-primary" onclick="submitAnswers()">
+          Перевірити відповіді
+        </button>
+      </div>
+    </div>
+
+    <div id="screen-checking" class="screen">
+      <div class="card center">
+        <div class="spinner"></div>
+        <p class="muted">Перевіряємо ваші відповіді...</p>
+      </div>
+    </div>
+
+    <div id="screen-win" class="screen">
+      <div class="card center">
+        <div class="confetti-wrap" id="confetti-wrap"></div>
+        <div class="icon win-icon">&#x1F3C6;</div>
+        <h2>Вітаємо!</h2>
+        <p class="muted">Всі відповіді правильні. Натисніть кнопку, щоб отримати ваш промокод.</p>
+        <button class="btn btn-primary" onclick="claimPromo()">
+          Отримати промокод
+        </button>
+      </div>
+    </div>
+
+    <div id="screen-promo" class="screen">
+      <div class="card center">
+        <div class="icon">&#x1F389;</div>
+        <h2>Ваш промокод</h2>
+        <div class="promo-box">
+          <span id="promo-code">—</span>
+          <button class="copy-btn" onclick="copyPromo()" title="Скопіювати">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          </button>
+        </div>
+        <p class="copy-hint" id="copy-hint"></p>
+        <p class="muted small">Використайте промокод при наступному замовленні.</p>
+      </div>
+    </div>
+
+    <div id="screen-blocked" class="screen">
+      <div class="card center">
+        <div class="icon">&#x23F3;</div>
+        <h2>Спробуйте пізніше</h2>
+        <p class="muted">На жаль, ви відповіли не на всі питання правильно.</p>
+        <p class="muted">Повторна спроба буде доступна через:</p>
+        <div id="block-timer" class="countdown red">10:00</div>
+      </div>
+    </div>
+
+    <div id="screen-finished" class="screen">
+      <div class="card center">
+        <div class="icon">&#x1F38A;</div>
+        <h2>Акцію завершено</h2>
+        <p class="muted">Усі промокоди на сьогодні вже розіграні.</p>
+        <p class="muted">Чекаємо вас завтра о <strong>09:00</strong>!</p>
+      </div>
+    </div>
+
+    <div id="screen-no-quiz" class="screen">
+      <div class="card center">
+        <div class="icon">&#x1F4C5;</div>
+        <h2>Сьогодні акції немає</h2>
+        <p class="muted">Слідкуйте за оновленнями.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>&#169; 2026 LUXEL. Тільки для дистриб'юторів.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
