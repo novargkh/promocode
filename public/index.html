@@ -17,6 +17,7 @@
 
   <main class="main">
 
+    <!-- LOADING -->
     <div id="screen-loading" class="screen active">
       <div class="card">
         <div class="spinner"></div>
@@ -24,9 +25,10 @@
       </div>
     </div>
 
+    <!-- NOT YET -->
     <div id="screen-not-yet" class="screen">
       <div class="card center">
-        <div class="icon">&#x23F0;</div>
+        <div class="icon">⏰</div>
         <h2>Акція ще не відкрита</h2>
         <p class="muted">Сьогоднішня вікторина почнеться о <strong id="open-time">09:00</strong></p>
         <div class="countdown-block">
@@ -36,10 +38,23 @@
       </div>
     </div>
 
+    <!-- QUIZ -->
     <div id="screen-quiz" class="screen">
       <div class="card quiz-card">
         <div class="quiz-header">
-          <span class="badge">&#x1F381; Щоденна акція</span>
+          <div class="quiz-top-row">
+            <span class="badge">🎁 Щоденна акція</span>
+            <div class="quiz-timer">
+              <svg class="timer-svg" viewBox="0 0 36 36">
+                <circle cx="18" cy="18" r="15.9" fill="none" stroke="#e5e7eb" stroke-width="3"/>
+                <circle id="timer-arc" cx="18" cy="18" r="15.9" fill="none"
+                  stroke="#E8192C" stroke-width="3"
+                  stroke-dasharray="100" stroke-dashoffset="0"
+                  stroke-linecap="round" transform="rotate(-90 18 18)"/>
+              </svg>
+              <span id="quiz-timer-text" class="timer-num">30</span>
+            </div>
+          </div>
           <p class="quiz-hint">Дайте правильні відповіді на всі 5 питань і отримайте промокод!</p>
         </div>
         <div id="questions-list" class="questions"></div>
@@ -49,6 +64,7 @@
       </div>
     </div>
 
+    <!-- CHECKING -->
     <div id="screen-checking" class="screen">
       <div class="card center">
         <div class="spinner"></div>
@@ -56,10 +72,11 @@
       </div>
     </div>
 
+    <!-- WIN -->
     <div id="screen-win" class="screen">
       <div class="card center">
         <div class="confetti-wrap" id="confetti-wrap"></div>
-        <div class="icon win-icon">&#x1F3C6;</div>
+        <div class="icon win-icon">🏆</div>
         <h2>Вітаємо!</h2>
         <p class="muted">Всі відповіді правильні. Натисніть кнопку, щоб отримати ваш промокод.</p>
         <button class="btn btn-primary" onclick="claimPromo()">
@@ -68,9 +85,10 @@
       </div>
     </div>
 
+    <!-- PROMO CODE -->
     <div id="screen-promo" class="screen">
       <div class="card center">
-        <div class="icon">&#x1F389;</div>
+        <div class="icon">🎉</div>
         <h2>Ваш промокод</h2>
         <div class="promo-box">
           <span id="promo-code">—</span>
@@ -83,9 +101,10 @@
       </div>
     </div>
 
+    <!-- WRONG / BLOCKED -->
     <div id="screen-blocked" class="screen">
       <div class="card center">
-        <div class="icon">&#x23F3;</div>
+        <div class="icon">⏳</div>
         <h2>Спробуйте пізніше</h2>
         <p class="muted">На жаль, ви відповіли не на всі питання правильно.</p>
         <p class="muted">Повторна спроба буде доступна через:</p>
@@ -93,18 +112,20 @@
       </div>
     </div>
 
+    <!-- FINISHED -->
     <div id="screen-finished" class="screen">
       <div class="card center">
-        <div class="icon">&#x1F38A;</div>
+        <div class="icon">🎊</div>
         <h2>Акцію завершено</h2>
         <p class="muted">Усі промокоди на сьогодні вже розіграні.</p>
         <p class="muted">Чекаємо вас завтра о <strong>09:00</strong>!</p>
       </div>
     </div>
 
+    <!-- NO QUIZ -->
     <div id="screen-no-quiz" class="screen">
       <div class="card center">
-        <div class="icon">&#x1F4C5;</div>
+        <div class="icon">📅</div>
         <h2>Сьогодні акції немає</h2>
         <p class="muted">Слідкуйте за оновленнями.</p>
       </div>
@@ -113,7 +134,7 @@
   </main>
 
   <footer class="footer">
-    <p>&#169; 2026 LUXEL. Тільки для дистриб'юторів.</p>
+    <p>© 2026 LUXEL. Тільки для дистриб'юторів.</p>
   </footer>
 
   <script src="app.js"></script>
